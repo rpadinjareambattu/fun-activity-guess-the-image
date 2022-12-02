@@ -6,7 +6,7 @@ const ImageCard = (props: any) => {
     <div className="col-md-3">
       <div className={styles.imagecard__img}>
         <img className="img-fluid" src={props.imgsrc} />
-        <span>{props.itemno}</span>
+        <span className={styles.imagecard__count}>{props.itemno}</span>
       </div>
     </div>
   );
