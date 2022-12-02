@@ -1,0 +1,8 @@
+.imagecard {
+  background-color: red;
+  &__img {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #e7e7e7;
+  }
+}
