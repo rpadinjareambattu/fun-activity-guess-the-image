@@ -32,14 +32,15 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        {showText && (
+        {showText ? (
           <Button variant="primary" onClick={() => setShowText(false)}>
             Back
           </Button>
+        ) : (
+          <Button variant="primary" onClick={() => setShowText(true)}>
+            Next
+          </Button>
         )}
-        <Button variant="primary" onClick={() => setShowText(true)}>
-          Next
-        </Button>
       </Modal.Footer>
     </Modal>
   );

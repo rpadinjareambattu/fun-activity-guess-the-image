@@ -1,6 +1,12 @@
 .imagecard {
   background-color: red;
   cursor: pointer;
+  &_disabled {
+    pointer-events: none;
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  }
   &__img {
     border-radius: 15px;
     overflow: hidden;
