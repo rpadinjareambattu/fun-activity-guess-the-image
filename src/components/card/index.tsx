@@ -1,5 +1,14 @@
-const Card = () => {
-  return <h1>Card</h1>;
+import styles from "./index.module.scss";
+
+const ImageCard = (props: any) => {
+  return (
+    <div className="col-md-3">
+      <div className={styles.imagecard__img} onClick={props.handleCardClick}>
+        <img className="img-fluid" src={props.imgsrc} />
+        <span className={styles.imagecard__count}>{props.itemno}</span>
+      </div>
+    </div>
+  );
 };
 
-export default Card;
+export default ImageCard;

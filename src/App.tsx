@@ -1,14 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { Button } from "react-bootstrap";
 import "./App.css";
-import Card from "./components/card";
+import FunActivityPage from "./pages/fun-acitivity";
 
 function App() {
   return (
     <div className="App">
-      <Card />
-      <p>smkfdkfsmfkdm</p>
+      <FunActivityPage></FunActivityPage>
     </div>
   );
 }
