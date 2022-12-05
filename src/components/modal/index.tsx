@@ -19,11 +19,10 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__body}>
-          {!showText ? (
-            <figure className={styles.modal__figure}>
-              <img className={styles.modal__img} src={data?.imgUrl} />
-            </figure>
-          ) : (
+          <figure className={styles.modal__figure}>
+            <img className={styles.modal__img} src={data?.imgUrl} />
+          </figure>
+          {showText && (
             <div className={styles.modal__content}>
               <p>{data?.qno}</p>
               <p>{data?.answer}</p>
@@ -33,8 +32,14 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       </Modal.Body>
       <Modal.Footer>
         {showText ? (
-          <Button variant="primary" onClick={() => setShowText(false)}>
-            Back
+          <Button
+            variant="primary"
+            onClick={() => {
+              setShowText(false);
+              hideModal();
+            }}
+          >
+            Close
           </Button>
         ) : (
           <Button variant="primary" onClick={() => setShowText(true)}>
