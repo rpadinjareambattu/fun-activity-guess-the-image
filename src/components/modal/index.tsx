@@ -24,7 +24,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
   return (
     <Modal
       show={showModal}
@@ -37,20 +36,17 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         console.log(timer);
       }}
       size="xl"
-      centered={true}>
+      centered={true}
+    >
       <Modal.Header closeButton={timeLeft > 0 ? false : true}>
         <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0">
-        <div className={styles.modal__lottie}>
-          {timeLeft === 0 ? (
-            <Lottie options={defaultOptions} height={400} width={400} />
-          ) : null}
-        </div>
+        <div className={styles.modal__lottie}>{timeLeft === 0 ? <Lottie options={defaultOptions} height={400} width={400} /> : null}</div>
 
         <div className={styles.modal__body}>
           <figure className={styles.modal__figure}>
-            <img className={styles.modal__img} src={data?.imgUrl} />
+            <img className={styles.modal__img} src="../../assets/images/girl-image@2x.png" />
           </figure>
           {showText && (
             <div className={styles.modal__content}>
@@ -70,7 +66,8 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
               setTimeLeft(timer);
               setShowText(false);
               hideModal();
-            }}>
+            }}
+          >
             Close
           </Button>
         ) : (
