@@ -24,6 +24,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  console.log("data", data);
   return (
     <Modal
       show={showModal}
@@ -50,7 +51,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           </figure>
           {showText && (
             <div className={styles.modal__content}>
-              {timeLeft === 0 ? <p>{data?.answer}</p> : null}
+              {timeLeft === 0 ? <p>{data?.imgName}</p> : null}
 
               <p>{timeLeft > 0 ? timeLeft : null}</p>
             </div>

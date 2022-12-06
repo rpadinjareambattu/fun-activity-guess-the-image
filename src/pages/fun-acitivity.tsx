@@ -16,12 +16,12 @@ function FunActivityPage() {
   useEffect(() => {
     if (images) {
       const innerData = Object.keys(images).map((inner, index) => {
-        return { id: index + 1, imgUrl: inner, isSelected: false };
+        return { id: index + 1, imgUrl: inner, isSelected: false, imgName: inner?.split("/")?.pop()?.split(".")[0] };
       });
       setParsedData(innerData);
     }
   }, []);
-
+  console.log("parsedData", parsedData);
   return (
     <section className="cardmain">
       <div className="container-fluid">
