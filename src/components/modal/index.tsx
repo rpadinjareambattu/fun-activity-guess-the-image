@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import styles from "./index.module.scss";
 import Modal from "react-bootstrap/Modal";
-import Lottie from "lottie-react";
+import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/74659-confetti-day.json";
 
 const BsModal = ({ data, showModal, hideModal }: any) => {
@@ -16,22 +16,36 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
     }
   }, [showText, timeLeft]);
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <Modal
       show={showModal}
+      backdrop="static"
       onHide={() => {
+        setTimeLeft(timer);
         setShowText(false);
         hideModal();
-        setTimeLeft(timer);
+
+        console.log(timer);
       }}
       size="xl"
       centered={true}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton={timeLeft > 0 ? false : true}>
         <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>
-          {timeLeft === 0 ? <Lottie animationData={animationData} /> : null}
+          {timeLeft === 0 ? (
+            <Lottie options={defaultOptions} height={400} width={400} />
+          ) : null}
         </div>
 
         <div className={styles.modal__body}>
@@ -51,7 +65,9 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         {showText ? (
           <Button
             variant="primary"
+            className={`${timeLeft > 0 ? "disabled" : ""}`}
             onClick={() => {
+              setTimeLeft(timer);
               setShowText(false);
               hideModal();
             }}>
