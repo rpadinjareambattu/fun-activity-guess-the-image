@@ -39,3 +39,11 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.cardmain{
+  height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
