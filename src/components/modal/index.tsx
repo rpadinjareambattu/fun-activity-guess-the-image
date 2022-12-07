@@ -15,7 +15,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }
   }, [showText, timeLeft]);
-console.log(data?.imgUrl.replace("..",""))
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -55,7 +54,7 @@ console.log(data?.imgUrl.replace("..",""))
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src={`public/${data?.imgUrl}`}
+              src={`${data?.imgUrl}`}
             />
           </figure>
           {data?.isSelected ? (
