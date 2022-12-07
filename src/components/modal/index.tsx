@@ -30,6 +30,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
   const imageLoad = () => {
     setLoading(true);
   };
+
   return (
     <Modal
       show={showModal}
@@ -44,8 +45,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       size="xl"
       centered={true}
     >
-      <Modal.Header closeButton={timeLeft > 0 ? false : true}>
-      </Modal.Header>
+      <Modal.Header closeButton={timeLeft > 0 ? false : true}></Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>{timeLeft === 0 ? <Lottie options={defaultOptions} height={400} width={400} /> : null}</div>
 
