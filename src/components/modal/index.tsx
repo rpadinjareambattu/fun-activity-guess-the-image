@@ -55,7 +55,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src={data?.imgUrl}
+              src={`dist/${data?.imgUrl.replace("..","")}`}
             />
           </figure>
           {data?.isSelected ? (
@@ -78,9 +78,10 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        {showText||data?.isSelected ? (
+        {showText || data?.isSelected? (
           <Button
             variant="primary"
+            className={`${timeLeft > 0 && !data?.isSelected ? "disabled" : ""}`}
             onClick={() => {
               setTimeLeft(timer);
               setShowText(false);
@@ -90,6 +91,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           </Button>
         ) : (
           <Button
+            className={data?.isSelected ? "disabled" : ""}
             variant="primary"
             onClick={() => setShowText(true)}>
             Next
