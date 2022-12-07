@@ -46,7 +46,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
 
         <div className={styles.modal__body}>
           <figure className={styles.modal__figure}>
-            <img className={styles.modal__img} src="../../assets/images/girl-image@2x.png" />
+            <img className={styles.modal__img} src={`../${data?.imgUrl}`} />
           </figure>
           {showText && (
             <div className={styles.modal__content}>
