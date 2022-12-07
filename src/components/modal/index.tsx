@@ -4,10 +4,12 @@ import styles from "./index.module.scss";
 import Modal from "react-bootstrap/Modal";
 import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/74659-confetti-day.json";
+import { Spinner } from "react-bootstrap";
 
 const BsModal = ({ data, showModal, hideModal }: any) => {
   let timer = 3;
   const [showText, setShowText] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(timer);
 
   useEffect(() => {
@@ -23,6 +25,10 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
+  };
+
+  const imageLoad = () => {
+    setLoading(true);
   };
   return (
     <Modal
@@ -46,7 +52,14 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
 
         <div className={styles.modal__body}>
           <figure className={styles.modal__figure}>
-            <img className={styles.modal__img} src={`../${data?.imgUrl}`} />
+            <img className={styles.modal__img} src={`../${data?.imgUrl}`} onLoad={imageLoad} />
+            {!loading && (
+              <div className={styles.modal__loader}>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </div>
+            )}
           </figure>
           {showText && (
             <div className={styles.modal__content}>
