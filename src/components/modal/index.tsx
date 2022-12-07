@@ -4,12 +4,10 @@ import styles from "./index.module.scss";
 import Modal from "react-bootstrap/Modal";
 import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/74659-confetti-day.json";
-import { Spinner } from "react-bootstrap";
 
 const BsModal = ({ data, showModal, hideModal }: any) => {
   let timer = 3;
   const [showText, setShowText] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(timer);
 
   useEffect(() => {
@@ -26,11 +24,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
-  const imageLoad = () => {
-    setLoading(true);
-  };
-
   return (
     <Modal
       show={showModal}
@@ -39,31 +32,47 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         setTimeLeft(timer);
         setShowText(false);
         hideModal();
-
-        console.log(timer);
       }}
       size="xl"
-      centered={true}
-    >
-      <Modal.Header closeButton={timeLeft > 0 ? false : true}></Modal.Header>
+      centered={true}>
+      <Modal.Header
+        closeButton={
+          timeLeft === 0
+            ? true
+            : false || (timeLeft >= 0 && data?.isSelected)
+            ? true
+            : false
+        }>
+        <Modal.Title>Modal heading</Modal.Title>
+      </Modal.Header>
       <Modal.Body className="p-0">
-        <div className={styles.modal__lottie}>{timeLeft === 0 ? <Lottie options={defaultOptions} height={400} width={400} /> : null}</div>
+        <div className={styles.modal__lottie}>
+          {timeLeft === 0 ? (
+            <Lottie options={defaultOptions} height={400} width={400} />
+          ) : null}
+        </div>
 
         <div className={styles.modal__body}>
           <figure className={styles.modal__figure}>
-            <img className={styles.modal__img} src={`../${data?.imgUrl}`} onLoad={imageLoad} />
-            {!loading && (
-              <div className={styles.modal__loader}>
-                <Spinner animation="border" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </Spinner>
-              </div>
-            )}
+            <img
+              className={styles.modal__img}
+              src="../../assets/images/girl-image@2x.png"
+            />
           </figure>
+          {data?.isSelected ? (
+            <div className={styles.modal__content}>
+              <p>
+                {data.imgUrl
+                  .split("/")
+                  ?.pop()
+                  ?.split(".")[0]
+                  .replace(/-/g, " ")}
+              </p>
+            </div>
+          ) : null}
           {showText && (
             <div className={styles.modal__content}>
               {timeLeft === 0 ? <p>{data?.imgName}</p> : null}
-
               <p>{timeLeft > 0 ? timeLeft : null}</p>
             </div>
           )}
@@ -78,12 +87,14 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
               setTimeLeft(timer);
               setShowText(false);
               hideModal();
-            }}
-          >
+            }}>
             Close
           </Button>
         ) : (
-          <Button variant="primary" onClick={() => setShowText(true)}>
+          <Button
+            className={data?.isSelected ? "disabled" : ""}
+            variant="primary"
+            onClick={() => setShowText(true)}>
             Next
           </Button>
         )}
