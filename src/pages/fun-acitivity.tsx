@@ -21,7 +21,7 @@ function FunActivityPage() {
       setParsedData(innerData);
     }
   }, []);
-  console.log("parsedData", parsedData);
+
   return (
     <section className="cardmain">
       <div className="container-fluid">
