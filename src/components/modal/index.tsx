@@ -45,7 +45,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       centered={true}
     >
       <Modal.Header closeButton={timeLeft > 0 ? false : true}>
-        <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>{timeLeft === 0 ? <Lottie options={defaultOptions} height={400} width={400} /> : null}</div>
