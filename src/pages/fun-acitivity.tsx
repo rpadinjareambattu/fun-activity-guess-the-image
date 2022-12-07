@@ -11,14 +11,14 @@ function FunActivityPage() {
   const handleClose = () => {
     setShowModal(false);
   };
-  const images = import.meta.glob("../assets/images/*");
+  const images = import.meta.glob("../../public/assets/images/*");
 
   useEffect(() => {
     if (images) {
       const innerData = Object.keys(images).map((inner, index) => {
-        return { id: index + 1, imgUrl: inner, isSelected: false, imgName: inner?.split("/")?.pop()?.split(".")[0] };
+        return { id: index + 1, imgUrl: inner, isSelected: false, imgName: inner?.split("/")?.pop()?.split(".")[0].replace(/-/g, " ") };
       });
-      setParsedData(innerData);
+      setParsedData(innerData.sort(() => Math.random() - 0.5));
     }
   }, []);
 
@@ -32,7 +32,7 @@ function FunActivityPage() {
                 key={index}
                 qans={item.answer}
                 imgsrc={scratchImg}
-                itemno={item.id}
+                itemno={index + 1}
                 handleCardClick={() => {
                   setParsedData([
                     ...parsedData.map((f: { id: any; imgUrl: string; isSelected: boolean }) => {
