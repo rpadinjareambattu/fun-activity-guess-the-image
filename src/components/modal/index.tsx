@@ -43,7 +43,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
             ? true
             : false
         }>
-        <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>
@@ -56,7 +55,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src="../../assets/images/girl-image@2x.png"
+              src={data?.imgUrl}
             />
           </figure>
           {data?.isSelected ? (
@@ -79,10 +78,9 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        {showText ? (
+        {showText||data?.isSelected ? (
           <Button
             variant="primary"
-            className={`${timeLeft > 0 ? "disabled" : ""}`}
             onClick={() => {
               setTimeLeft(timer);
               setShowText(false);
@@ -92,7 +90,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           </Button>
         ) : (
           <Button
-            className={data?.isSelected ? "disabled" : ""}
             variant="primary"
             onClick={() => setShowText(true)}>
             Next

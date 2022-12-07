@@ -11,7 +11,7 @@ function FunActivityPage() {
   const handleClose = () => {
     setShowModal(false);
   };
-  const images = import.meta.glob("../assets/images/*");
+  const images = import.meta.glob("../../public/assets/images/*");
 
   useEffect(() => {
     if (images) {
