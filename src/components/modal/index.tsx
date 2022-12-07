@@ -55,7 +55,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src={`${data?.imgUrl.replace("..","")}`}
+              src={`/${data?.imgUrl.replace("..","")}`}
             />
           </figure>
           {data?.isSelected ? (
