@@ -6,7 +6,6 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/74659-confetti-day.json";
 
 const BsModal = ({ data, showModal, hideModal }: any) => {
-  console.log(data, ">>>>>>>>>>>>>>>");
   let timer = 3;
   const [showText, setShowText] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timer);
@@ -35,7 +34,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       }, 1000);
     }
   }, [counter]);
-
+  console.log("is", data?.isSelected);
   return (
     <Modal
       show={showModal}
@@ -57,7 +56,9 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
             : false
         }
       >
-        {showTimer ? <h3>You have {counter} seconds left.</h3> : null}
+        {!data?.isSelected && showTimer ? (
+          <h3>You have {counter} seconds left.</h3>
+        ) : null}
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>
