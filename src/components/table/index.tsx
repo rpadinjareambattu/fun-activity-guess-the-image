@@ -5,39 +5,43 @@ import Table from "react-bootstrap/Table";
 function StatisticTable() {
   const data = [
     {
-      teamName: "team a",
+      teamName: "SPARK PLUGS",
       team: [
-        { id: "q1", valid: false },
-        { id: "q2", valid: false },
-        { id: "q3", valid: false },
-        { id: "q4", valid: false },
+        { id: "q1", valid: null },
+        { id: "q2", valid: null },
+        { id: "q3", valid: null },
+        { id: "q4", valid: null },
+        { id: "q5", valid: null },
       ],
     },
     {
-      teamName: "team b",
+      teamName: "PADAYOTTAM",
       team: [
-        { id: "q1", valid: false },
-        { id: "q2", valid: false },
-        { id: "q3", valid: false },
-        { id: "q4", valid: false },
+        { id: "q1", valid: null },
+        { id: "q2", valid: null },
+        { id: "q3", valid: null },
+        { id: "q4", valid: null },
+        { id: "q5", valid: null },
       ],
     },
     {
-      teamName: "team c",
+      teamName: "CHAOS",
       team: [
-        { id: "q1", valid: false },
-        { id: "q2", valid: false },
-        { id: "q3", valid: false },
-        { id: "q4", valid: false },
+        { id: "q1", valid: null },
+        { id: "q2", valid: null },
+        { id: "q3", valid: null },
+        { id: "q4", valid: null },
+        { id: "q5", valid: null },
       ],
     },
     {
-      teamName: "team d",
+      teamName: "TROUBLEMAKERS",
       team: [
-        { id: "q1", valid: false },
-        { id: "q2", valid: false },
-        { id: "q3", valid: false },
-        { id: "q4", valid: false },
+        { id: "q1", valid: null },
+        { id: "q2", valid: null },
+        { id: "q3", valid: null },
+        { id: "q4", valid: null },
+        { id: "q5", valid: null },
       ],
     },
   ];

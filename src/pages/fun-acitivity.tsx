@@ -74,11 +74,13 @@ function FunActivityPage() {
             <StatisticTable />
           </div>
         </div>
-        <BsModal
-          showModal={showModal}
-          data={modalData}
-          hideModal={handleClose}
-        ></BsModal>
+        {showModal && (
+          <BsModal
+            showModal={true}
+            data={modalData}
+            hideModal={handleClose}
+          ></BsModal>
+        )}
       </div>
     </section>
   );
