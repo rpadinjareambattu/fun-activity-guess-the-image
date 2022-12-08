@@ -32,7 +32,7 @@ function FunActivityPage() {
     <section className="cardmain">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-7">
+          <div className="col-md-8">
             <div className="row">
               {parsedData.map((item: any, index: any) => {
                 return (
@@ -70,7 +70,7 @@ function FunActivityPage() {
               })}
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <StatisticTable />
           </div>
         </div>
