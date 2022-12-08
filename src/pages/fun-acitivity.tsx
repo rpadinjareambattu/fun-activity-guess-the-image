@@ -13,7 +13,7 @@ function FunActivityPage() {
     setShowModal(false);
   };
   const images = import.meta.glob("../assets/images/*");
-  // console.log(import.meta.env.VITE_ASSET_URL)
+  
   useEffect(() => {
     if (images) {
       const innerData = Object.keys(images).map((inner, index) => {
