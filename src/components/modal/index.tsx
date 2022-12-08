@@ -9,7 +9,8 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
   let timer = 3;
   const [showText, setShowText] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timer);
-
+const assetUrl = import.meta.env.VITE_ASSET_URL
+console.log(assetUrl)
   useEffect(() => {
     if (showText === true) {
       timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
@@ -55,7 +56,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src={`${data?.imgUrl}`}
+              src={`${assetUrl}${data?.imgUrl.replace("..","")}`}
             />
           </figure>
           {data?.isSelected ? (
