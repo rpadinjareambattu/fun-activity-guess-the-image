@@ -15,7 +15,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }
   }, [showText, timeLeft]);
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -43,7 +42,6 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
             ? true
             : false
         }>
-        <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>
@@ -56,7 +54,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
           <figure className={styles.modal__figure}>
             <img
               className={styles.modal__img}
-              src="../../assets/images/girl-image@2x.png"
+              src={`${data?.imgUrl}`}
             />
           </figure>
           {data?.isSelected ? (
@@ -79,10 +77,10 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        {showText ? (
+        {showText || data?.isSelected? (
           <Button
             variant="primary"
-            className={`${timeLeft > 0 ? "disabled" : ""}`}
+            className={`${timeLeft > 0 && !data?.isSelected ? "disabled" : ""}`}
             onClick={() => {
               setTimeLeft(timer);
               setShowText(false);
