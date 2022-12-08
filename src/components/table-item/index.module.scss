@@ -1,12 +1,99 @@
 .table {
   &__dropdown {
     margin-right: 8px;
-    button {
+    .btn {
       width: 25px;
       height: 25px;
       border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      background: none;
+      border: 1px solid white;
+      &:hover {
+        background: none;
+        border-color: white;
+        opacity: 0.6;
+      }
       &::after {
         display: none;
+      }
+      &.btn_danger {
+        background-color: red;
+        border: 0;
+        &:after {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 14px;
+          height: 0px;
+          border: solid #fff;
+          border-width: 0 0px 2px 0;
+          transform: rotate(45deg);
+          left: 5px;
+          top: 12px;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 14px;
+          height: 0px;
+          border: solid #fff;
+          border-width: 0 0px 2px 0;
+          transform: rotate(-45deg);
+          left: 5px;
+          top: 12px;
+        }
+      }
+
+      &.btn_success {
+        border: 0;
+        background-color: green;
+        &::after {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 6px;
+          height: 0px;
+          border: solid #fff;
+          border-width: 0 0px 2px 0;
+          transform: rotate(45deg);
+          left: 6px;
+          top: 14px;
+        }
+        &::before {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 12px;
+          height: 0px;
+          border: solid #fff;
+          border-width: 0 0px 2px 0;
+          transform: rotate(-45deg);
+          left: 9px;
+          top: 12px;
+        }
+      }
+    }
+
+    div {
+      padding: 0;
+      background-color: #a092dc;
+      a {
+        border-radius: inherit;
+        color: #181137;
+        &:first-child:hover {
+          background-color: #ffffff;
+          color: #00ab00;
+          font-weight: 600;
+          border-radius: 5px 5px 0 0;
+        }
+        &:nth-child(2):hover {
+          background-color: #ffffff;
+          color: #dc0000;
+          font-weight: 600;
+          border-radius: 0 0 5px 5px;
+        }
       }
     }
   }

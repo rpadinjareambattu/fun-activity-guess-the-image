@@ -43,11 +43,17 @@ const TableItem = ({ group_name, datas }: any) => {
             return (
               <Dropdown className={styles.table__dropdown} key={i.id}>
                 <Dropdown.Toggle
-                  variant={i.valid ? "success" : "danger"}
                   id="dropdown-basic"
+                  className={`${styles.btn} ${
+                    i.valid === null
+                      ? `${styles.btn_light}`
+                      : i.valid
+                      ? `${styles.btn_success}`
+                      : `${styles.btn_danger}`
+                  }`}
                 ></Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className={styles.table__dropdown_items}>
                   <Dropdown.Item onClick={() => onSuccess(i.id)}>
                     Right
                   </Dropdown.Item>

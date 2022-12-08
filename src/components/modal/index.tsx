@@ -6,15 +6,19 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/74659-confetti-day.json";
 
 const BsModal = ({ data, showModal, hideModal }: any) => {
+  console.log(data, ">>>>>>>>>>>>>>>");
   let timer = 3;
   const [showText, setShowText] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timer);
+  const [counter, setCounter] = useState(30);
+  const [showTimer, setShowTimer] = useState(true);
 
   useEffect(() => {
     if (showText === true) {
       timeLeft > 0 && setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }
   }, [showText, timeLeft]);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -23,6 +27,15 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  useEffect(() => {
+    if (counter > 0) {
+      setTimeout(() => {
+        setCounter(counter - 1);
+      }, 1000);
+    }
+  }, [counter]);
+
   return (
     <Modal
       show={showModal}
@@ -33,7 +46,8 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         hideModal();
       }}
       size="xl"
-      centered={true}>
+      centered={true}
+    >
       <Modal.Header
         closeButton={
           timeLeft === 0
@@ -41,7 +55,9 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
             : false || (timeLeft >= 0 && data?.isSelected)
             ? true
             : false
-        }>
+        }
+      >
+        {showTimer ? <h3>You have {counter} seconds left.</h3> : null}
       </Modal.Header>
       <Modal.Body className="p-0">
         <div className={styles.modal__lottie}>
@@ -52,10 +68,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
 
         <div className={styles.modal__body}>
           <figure className={styles.modal__figure}>
-            <img
-              className={styles.modal__img}
-              src={`${data?.imgUrl}`}
-            />
+            <img className={styles.modal__img} src={`${data?.imgUrl}`} />
           </figure>
           {data?.isSelected ? (
             <div className={styles.modal__content}>
@@ -77,7 +90,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        {showText || data?.isSelected? (
+        {showText || data?.isSelected ? (
           <Button
             variant="primary"
             className={`${timeLeft > 0 && !data?.isSelected ? "disabled" : ""}`}
@@ -85,14 +98,19 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
               setTimeLeft(timer);
               setShowText(false);
               hideModal();
-            }}>
+            }}
+          >
             Close
           </Button>
         ) : (
           <Button
             className={data?.isSelected ? "disabled" : ""}
             variant="primary"
-            onClick={() => setShowText(true)}>
+            onClick={() => {
+              setShowText(true);
+              setShowTimer(false);
+            }}
+          >
             Next
           </Button>
         )}
