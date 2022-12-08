@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -16,7 +16,7 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-.modal-header{
+.modal-header {
   min-height: 50px;
 }
 @keyframes logo-spin {
@@ -42,16 +42,15 @@
   color: #888;
 }
 
-
-.cardmain{
+.cardmain {
   height: calc(100vh - 4rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-body{
-      background: url(https://static.vecteezy.com/system/resources/previews/005/217/234/original/gaming-background-blue-and-purple-with-element-vector.jpg);
-    background-size: cover;
-    background-position: center;
-
+body {
+  /* background: url(https://static.vecteezy.com/system/resources/previews/005/217/234/original/gaming-background-blue-and-purple-with-element-vector.jpg); */
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(#0f0c29, #5939a7, #161035);
 }

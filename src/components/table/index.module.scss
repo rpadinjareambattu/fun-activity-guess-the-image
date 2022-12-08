@@ -1,0 +1,46 @@
+.table {
+  table {
+    border-collapse: inherit;
+    margin-bottom: 0;
+  }
+  th {
+    background: rgb(255 255 255 / 36%);
+    border: 1px solid #9089a3;
+    padding: 12px 12px;
+    color: white;
+  }
+  width: 100%;
+  color: #15f4ee;
+  &__select {
+    width: 12px !important;
+  }
+  &__wrapper {
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+    table,
+    td {
+      color: #ffffff;
+      border: 1px solid #9089a3;
+      border-collapse: separate;
+      padding: 4px 12px;
+      background: rgb(241 241 241 / 17%);
+    }
+  }
+  &__dropdown {
+    margin-right: 8px;
+    button {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.table-responsive {
+  box-shadow: 2px 2px 18px 13px #00000038;
+  border-radius: 9px;
+}
