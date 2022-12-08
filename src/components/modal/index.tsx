@@ -23,6 +23,7 @@ const BsModal = ({ data, showModal, hideModal }: any) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  console.log(data?.imgUrl.replace("..",""))
   return (
     <Modal
       show={showModal}
